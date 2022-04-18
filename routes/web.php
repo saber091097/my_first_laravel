@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ShoppingCartController;
 
 
 /*
@@ -19,7 +20,7 @@ use App\Http\Controllers\NewsController;
 Route::get('/', [Controller::class, 'index']);
 
 // Route::get('/test', function () {
-//     return view('welcome');
+//     return view('shopping.index');
 // });
 
 // Route::get('/say', function () {
@@ -27,3 +28,12 @@ Route::get('/', [Controller::class, 'index']);
 // });
 
 Route::get('/microsoft', [NewsController::class, 'index']);
+
+Route::get('/bootstrap', [ShoppingCartController::class, 'index']);
+Route::get('/shopping1', [ShoppingCartController::class, 'step01']);
+Route::get('/shopping2', [ShoppingCartController::class, 'step02']);
+Route::get('/shopping3', [ShoppingCartController::class, 'step03']);
+Route::get('/shopping4', [ShoppingCartController::class, 'step04']);
+
+Route::get('/login', [Controller::class, 'login']);
+
