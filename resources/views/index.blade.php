@@ -1,7 +1,7 @@
-@extends('shopping.template')
+@extends('template.template')
 
     @section('pageTitle')
-        Document
+        首頁
     @endsection
 
 
@@ -41,6 +41,17 @@
             height: 100%;
             object-fit: cover;
         }
+        .no-img{
+            width: 100px;
+            height: 100px;
+            background-color: greenyellow;
+            border-radius: 50%;
+            color: white;
+            font-size: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
     @endsection
 
@@ -75,43 +86,27 @@
                 </div>
                 <!-- 下半部 -->
                 <div class="goods-bottom">
-                    <?php
-
-                        echo $data2[0]->title;;
-
-                    ?>
-
 
                     <!-- 商品頁面卡片 -->
                     <div class="goods-card">
                         <div class="card-group ">
+                            @foreach ($newses as $news)
                             <div class="card text-center ">
-                                <img src=" {{$data2[0]->img}}" class="card-img-top" alt="img-here">
+                                @if ($news->img == "" || $news->img == null)
+                                    <div class="no-img">{{ mb_substr($news->title,0,1,"utf-8")}}</div>
+                                @else
+                                    <img src="{{$news->img}}" alt="">
+                                @endif
                                 <div class="card-body ">
-                                    <h5 class="card-title">{{$data2[0]->title}}</h5>
-                                    <p class="card-text">{{$data2[0]->content}}</p>
-                                    <span class="card-text"><small class="text-muted">Learn More</small></span><i
-                                        class="fa-solid fa-arrow-right"></i>
+                                    <h5 class="card-title">{{$news->title}}</h5>
+                                    <p class="card-text">{{$news->content}}</p>
+                                    <span class="card-text">
+                                        <small class="text-muted">Learn More</small>
+                                    </span>
+                                    <i class="fa-solid fa-arrow-right"></i>
                                 </div>
                             </div>
-                            <div class="card text-center">
-                                <img src="{{$data2[1]->img}}" class="card-img-top" alt="img-here">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{$data2[1]->title}}</h5>
-                                    <p class="card-text">{{$data2[1]->content}}</p>
-                                    <span class="card-text"><small class="text-muted">Learn More</small></span><i
-                                        class="fa-solid fa-arrow-right"></i>
-                                </div>
-                            </div>
-                            <div class="card text-center">
-                                <img src="{{$data2[2]->img}}" class="card-img-top" alt="img-here">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{$data2[2]->title}}</h5>
-                                    <p class="card-text">{{$data2[2]->content}}</p>
-                                    <span class="card-text"><small class="text-muted">Learn More</small></span><i
-                                        class="fa-solid fa-arrow-right"></i>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <!-- 商品頁面按鈕 -->

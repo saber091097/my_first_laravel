@@ -24,20 +24,22 @@
     <nav>
         <!-- logo -->
         <div class="container-xxl d-flex justify-content-lg-between ">
-            <div class="logo"><img src="{{ asset('img/homepage-img/logo--u5T7hu.svg')}}" alt=""></div>
+            <a href="/">
+                <div class="logo">
+                    <img src="{{ asset('img/homepage-img/logo--u5T7hu.svg')}}" alt="">
+                </div>
+            </a>
+
             <!-- 相關超連結 -->
             <ul class="nav justify-content-end align-content-center ">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Blog</a>
+                    <a class="nav-link" href="/product">商品管理</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Portfolio</a>
+                    <a class="nav-link" href="/banner">Banner管理</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="/comment">留言板管理</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/shopping1"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -47,7 +49,7 @@
                         <i class=" fa-solid fa-circle-user tabindex='1'"></i>
                     </a>
                     <div class="login-remind ">
-                        <P>Login</P>
+                        <P>登入</P>
                     </div>
                 </li>
             </ul>

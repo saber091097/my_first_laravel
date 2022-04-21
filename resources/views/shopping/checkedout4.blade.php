@@ -1,10 +1,11 @@
-@extends('shopping.template')
+@extends('template.template')
 
 @section('pageTitle')
     <title>訂單第四頁</title>
 @endsection
 
 @section('css')
+<link rel="stylesheet" href="{{asset('css/boostrap.css')}}">
     <link rel="stylesheet" href=" {{asset('css/checkedout4.css')}}">
 @endsection
 
