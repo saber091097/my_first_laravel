@@ -43,48 +43,27 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($banners as $banner)
                     <tr>
                         <td>
                             <div class="banner_img">
-                                <img src="{{asset('img/homework-img/400x400.png')}}" alt="" class="w-100">
+                                <img src="{{$banner->img_path}}" alt="" class="w-100" style="opacity: {{$banner->img_opacity}}">
                             </div>
                         </td>
-                        <td>1</td>
+                        <td>{{$banner->weight}}</td>
                         <td>
-                            <button class="btn btn-success">編輯</button>
-                            <button class="btn btn-danger">刪除</button>
+                            <button class="btn btn-success" onclick="location.href='/banner/edit/{{$banner->id}}'">編輯</button>
+                            <button class="btn btn-danger" onclick="document.querySelector('#deleteForm{{$banner->id}}').submit();">刪除</button>
+                            <form action="/banner/delete/{{$banner->id}}" method="post" hidden id="deleteForm{{$banner->id}}">
+                                @csrf
+                                @method('DELETE')
+                            </form>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <div class="banner_img">
-                                <img src="{{asset('img/homework-img/400x400.png')}}" alt="" class="w-100">
-                            </div>
-                        </td>
-                        <td>1</td>
-                        <td>
-                            <button class="btn btn-success">編輯</button>
-                            <button class="btn btn-danger">刪除</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="banner_img">
-                                <img src="{{asset('img/homework-img/400x400.png')}}" alt="" class="w-100">
-                            </div>
-                        </td>
-                        <td>1</td>
-                        <td>
-                            <button class="btn btn-success">編輯</button>
-                            <button class="btn btn-danger">刪除</button>
-                        </td>
-                    </tr>
-
+                    @endforeach
                 </tbody>
             </table>
-
         </div>
-
     </div>
 </div>
 @endsection

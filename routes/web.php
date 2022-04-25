@@ -61,15 +61,15 @@ Route::get('/login', [Controller::class, 'login']);
 // 部分參考resful API 個人習慣的寫法
 
 Route::prefix('/banner')->group(function () { // BANNER管理相關路由
+    Route::get('/', [BannerController::class, 'index']); //總表,列表頁 = Read
 
-    Route::get('/', [BannerController::class, 'index']); //總表,列表頁
-    Route::get('/create', [BannerController::class, 'create']); //新增頁
-    Route::post('/store', [BannerController::class, 'store']); //儲存
-    Route::get('/edit/{id}', [BannerController::class, 'edit']); //編輯頁
-    Route::post('/update/{id}', [BannerController::class, 'update']); //更新
-    Route::post('/delete/{id}', [BannerController::class, 'destroy']); //刪除
+    Route::get('/create', [BannerController::class, 'create']); //新增頁 C
+    Route::post('/store', [BannerController::class, 'store']); //儲存 C
 
+    Route::get('/edit/{id}', [BannerController::class, 'edit']); //編輯頁 U
+    Route::post('/update/{id}', [BannerController::class, 'update']); //更新  U
 
+    Route::delete('/delete/{id}', [BannerController::class, 'destroy']); //刪除 D
 });
 
 
