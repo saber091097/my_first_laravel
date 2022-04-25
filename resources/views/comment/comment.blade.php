@@ -48,8 +48,9 @@
                 <h3>歡迎留言討論~</h3>
             </div>
             <div class="content">
-                <form class="form" action="/comment/save" method="GET"> <!--需跟route對應-->
+                <form class="form" action="/comment/hahahahaha" method="post"> <!--需跟route對應-->
                     <!-- Bootstrap表單 -->
+                    @csrf
                     <!-- 標題 -->
                     <div class="tel">
                         <div class="mb-1">
