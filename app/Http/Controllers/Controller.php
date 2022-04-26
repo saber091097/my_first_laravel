@@ -9,6 +9,8 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Comment;
+use App\Models\Product;
+
 
 class Controller extends BaseController
 {
@@ -19,14 +21,13 @@ class Controller extends BaseController
         $newses = DB::table('news')->orderby('id','desc')->take(3)->get(); //抓最新的三筆
         // $data3 = DB::table('news')->inRandomOrder()->take(3)->get(); //隨機抓三筆
 
-        // dd($data1,$data2,$data3);
+        $products_for_box1 = Product::orderby('id','desc')->take(4)->get();
+        $products_for_box2 = Product::orderby('id','desc')->skip(4)->take(4)->get();
+
+        $main_product = Product::inRandomOrder()->first();
 
 
-        // return view('shopping.index',['news'=>$data2,'banner'=>$data1,'product'=>$data3]);
-
-        // return view('shopping.index')->with('news',$data2)->with('banner',$data1)->with('product',$data3);
-
-        return view('index',compact('newses'));
+        return view('index',compact('newses','products_for_box1','products_for_box2','main_product'));
 
 
     }

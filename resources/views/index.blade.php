@@ -337,12 +337,12 @@
         <div id="section7" class="big-goods-photo flex-column container-xxl flex-md-row">
             <!-- 左方照片 -->
             <div class="bgph-left col-12 col-md-6 h-auto">
-                <img src="{{asset('img/homepage-img/section7-img.jpg')}}" alt="" class="h-100">
+                <img src="{{$main_product->img_path}}" alt="" class="h-100">
             </div>
             <!-- 右方文字說明及下定按鈕 -->
             <div class="bgph-right col-12 col-md-6 pt-4 pb-4 pe-0 ps-5">
                 <h6>BRAND NAME</h6>
-                <h3>The Catcher in the Rye</h3>
+                <h3>{{$main_product->product_name}}</h3>
                 <div class="score-box d-flex">
                     <div class="score">
                         <svg fill="#6366f1" stroke="#6366f1" stroke-linecap="round" stroke-linejoin="round"
@@ -378,10 +378,7 @@
                     </div>
                     <div class="review">4 Reviews</div>
                 </div>
-                <div class="content">Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia
-                    microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday carry
-                    +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts
-                    keytar banjo tattooed umami cardigan.</div>
+                <div class="content">{{$main_product->product_detail}}</div>
                 <div class="selection-box d-flex">
                     <div class="color-selection">Color</div>
                     <div class="button-select">
@@ -398,7 +395,7 @@
                 </div>
                 <div class="big-goods-button d-flex">
                     <div class="price-box">
-                        <div class="price">$58.00</div>
+                        <div class="price">${{$main_product->product_price}}</div>
                     </div>
                     <div class="button-box">
                         <div class="price-button d-flex">
@@ -413,72 +410,28 @@
         <!-- 小商品陳列照 -->
         <div id="section8" class="little-goods-photo d-flex">
             <div class="box1 d-flex">
+                @foreach ($products_for_box1 as $item)
                 <div class="card">
-                    <img src="{{asset('img/homepage-img/section8-p1.jpg')}}" class="card-img-top" alt="...">
+                    <img src="{{$item->img_path}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h3>CATEGORY</h3>
-                        <h2>Neptune</h2>
-                        <p class="card-text">$21.00</p>
+                        <h2>{{$item->product_name}}</h2>
+                        <p class="card-text">${{$item->product_price}}</p>
                     </div>
                 </div>
-                <div class="card">
-                    <img src="{{asset('img/homepage-img/section8-p2.jpg')}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h3>CATEGORY</h3>
-                        <h2>Neptune</h2>
-                        <p class="card-text">$21.00</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="{{asset('img/homepage-img/section8-p3.jpg')}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h3>CATEGORY</h3>
-                        <h2>Neptune</h2>
-                        <p class="card-text">$21.00</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="{{asset('img/homepage-img/section8-p4.jpg')}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h3>CATEGORY</h3>
-                        <h2>Neptune</h2>
-                        <p class="card-text">$21.00</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="box2 d-flex">
+                @foreach ($products_for_box2 as $item)
                 <div class="card">
-                    <img src="{{asset('img/homepage-img/section8-p5.jpg')}}" class="card-img-top" alt="...">
+                    <img src="{{$item->img_path}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h3>CATEGORY</h3>
-                        <h2>Neptune</h2>
-                        <p class="card-text">$21.00</p>
+                        <h2>{{$item->product_name}}</h2>
+                        <p class="card-text">${{$item->product_price}}</p>
                     </div>
                 </div>
-                <div class="card">
-                    <img src="{{asset('img/homepage-img/section8-p6.jpg')}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h3>CATEGORY</h3>
-                        <h2>Neptune</h2>
-                        <p class="card-text">$21.00</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="{{asset('img/homepage-img/section8-p7.jpg')}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h3>CATEGORY</h3>
-                        <h2>Neptune</h2>
-                        <p class="card-text">$21.00</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="{{asset('img/homepage-img/section8-p8.jpg')}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h3>CATEGORY</h3>
-                        <h2>Neptune</h2>
-                        <p class="card-text">$21.00</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
         <!-- 地圖與回饋 -->

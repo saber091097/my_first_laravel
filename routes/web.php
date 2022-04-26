@@ -6,6 +6,8 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ShoppingCartController;
 
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\ProductController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -72,5 +74,16 @@ Route::prefix('/banner')->group(function () { // BANNER管理相關路由
     Route::delete('/delete/{id}', [BannerController::class, 'destroy']); //刪除 D
 });
 
+Route::prefix('/product')->group(function () { // 商品管理相關路由
+    Route::get('/', [ProductController::class, 'index']); //總表,列表頁 = Read
+
+    Route::get('/create', [ProductController::class, 'create']); //新增頁 C
+    Route::post('/store', [ProductController::class, 'store']); //儲存 C
+
+    Route::get('/edit/{id}', [ProductController::class, 'edit']); //編輯頁 U
+    Route::post('/update/{id}', [ProductController::class, 'update']); //更新  U
+
+    Route::delete('/delete/{id}', [ProductController::class, 'destroy']); //刪除 D
+});
 
 
