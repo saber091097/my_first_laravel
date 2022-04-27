@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Product_img;
+
 
 use App\Http\Controllers\FilesController;
 
@@ -39,15 +41,25 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        // 主要圖片上傳
         $path = FilesController::imgUpload($request->product_img, 'product');
 
-        Product::create([
+        $product = Product::create([
             'img_path' => $path,
             'product_name' =>  $request->product_name,
             'product_detail' =>  $request->product_detail,
             'product_qty' =>  $request->product_qty,
             'product_price' =>  $request->product_price,
         ]);
+
+        //次要圖片 多圖片上傳
+        foreach ($request->second_img as $index => $element) {
+            $path = FilesController::imgUpload($element, 'product');
+            Product_img::create([
+                'img_path' => $path,
+                'product_id'=>  $product->id,
+            ]);
+        }
 
         return redirect('/product');
     }
