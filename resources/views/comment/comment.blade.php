@@ -13,6 +13,9 @@
             border-width: 3px !important;
             border-color: gray !important;
         }
+        main #section1{
+            height: unset !important;
+        }
     </style>
 @endsection
 
@@ -35,8 +38,10 @@
                 </div>
                 <div class="border border-info">{{$comment->context}}</div>
                 <div>
+                    @auth
                     <a href="/comment/delete/{{$comment->id}}">刪除</a>
                     <a href="/comment/edit/{{$comment->id}}">編輯</a>
+                    @endauth
                 </div>
             </div>
             @endforeach
@@ -48,7 +53,7 @@
                 <h3>歡迎留言討論~</h3>
             </div>
             <div class="content">
-                <form class="form" action="/comment/hahahahaha" method="post"> <!--需跟route對應-->
+                <form class="form" action="/comment/store" method="post"> <!--需跟route對應-->
                     <!-- Bootstrap表單 -->
                     @csrf
                     <!-- 標題 -->

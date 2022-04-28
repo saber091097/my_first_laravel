@@ -32,26 +32,33 @@
 
             <!-- 相關超連結 -->
             <ul class="nav justify-content-end align-content-center ">
+
                 <li class="nav-item">
-                    <a class="nav-link" href="/product">商品管理</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/banner">Banner管理</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/comment">留言板管理</a>
+                    <a class="nav-link" href="/comment">留言板</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/shopping1"><i class="fa-solid fa-cart-shopping"></i></a>
                 </li>
+                @auth
                 <li class="nav-item">
-                    <a class="user-icon nav-link " href="#">
-                        <i class=" fa-solid fa-circle-user tabindex='1'"></i>
-                    </a>
-                    <div class="login-remind ">
-                        <P>登入</P>
-                    </div>
+                    <a class="nav-link">{{ Auth::user()->name}}, 您好</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="" onclick="event.preventDefault(); document.querySelector('#logout_form').submit()">登出</a>
+
+                    <form method="POST" action="{{ route('logout') }}" hidden id="logout_form">
+                        @csrf
+                    </form>
+                </li>
+                @endauth
+                @guest
+                <li class="nav-item">
+                    <a class="user-icon nav-link " href="/login">
+                        <i class=" fa-solid fa-circle-user tabindex='1'"></i>登入
+                    </a>
+                </li>
+                @endguest
+
             </ul>
             <!-- 漢堡連結 -->
             <div class="burger-link tabindex='1'">

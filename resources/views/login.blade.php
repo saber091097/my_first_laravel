@@ -9,6 +9,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href=" {{asset('css/login.css')}}">
+    <style>
+    </style>
 </head>
 
 <body>
@@ -50,16 +52,20 @@
                     </div>
                     <!-- 登入表單 -->
                     <div class="login-form d-flex">
-                        <form>
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
                             <div class="mb-3">
-                                <input type="email" class="form-control email-adress" id="exampleInputEmail1"
+                                <input type="email" class="form-control email-adress" id="exampleInputEmail1" name="email"
                                     aria-describedby="emailHelp" placeholder="E-mail">
                             </div>
                             <div class="mb-3">
-                                <input type="password" class="form-control password" id="exampleInputPassword1" placeholder="Password">
+                                <input type="password" class="form-control password" id="exampleInputPassword1" placeholder="Password" name="password">
                             </div>
-                            <div id="emailHelp" class="form-text">
-                                Forgot your password?
+
+                            <div id="emailHelp" class="form-text ">
+                                <input id="remember_me" type="checkbox" name="remember" style="width: 15px;height:15px;">
+                                <label for="remember_me">記住我?</label>
+                                <a href="" class="ms-5">Forgot your password?</a>
                             </div>
                             <button type="submit" class="btn btn-primary">SIGN IN</button>
                         </form>

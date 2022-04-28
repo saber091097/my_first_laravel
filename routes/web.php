@@ -7,8 +7,6 @@ use App\Http\Controllers\ShoppingCartController;
 
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ProductController;
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,31 +18,51 @@ use App\Http\Controllers\ProductController;
 |
 */
 
+// 首頁
 Route::get('/', [Controller::class, 'index']);
 
-// Route::get('/test', function () {
-//     return view('shopping.index');
-// });
-
-// Route::get('/say', function () {
-//     return 'Hello world!';
-// });
-
+// 留言相關路由
 Route::get('/comment', [Controller::class, 'comment']);
-Route::post('/comment/hahahahaha', [Controller::class, 'save_comment']);
-
+Route::post('/comment/store', [Controller::class, 'save_comment']);
 Route::get('/comment/edit/{id}', [Controller::class, 'edit_comment']);
 Route::get('/comment/update/{id}', [Controller::class, 'update_comment']);
-
 Route::get('/comment/delete/{id}', [Controller::class, 'delete_comment']);
 
-
+// 購物車相關路由
 Route::get('/shopping1', [ShoppingCartController::class, 'step01']);
 Route::get('/shopping2', [ShoppingCartController::class, 'step02']);
 Route::get('/shopping3', [ShoppingCartController::class, 'step03']);
 Route::get('/shopping4', [ShoppingCartController::class, 'step04']);
 
-Route::get('/login', [Controller::class, 'login']);
+// 後台首頁
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth','power'])->name('dashboard');
+
+// 登入相關路由
+require __DIR__.'/auth.php';
+
+ // BANNER管理相關路由
+Route::prefix('/banner')->middleware(['auth','power'])->group(function () {
+    Route::get('/', [BannerController::class, 'index']); //總表,列表頁 = Read
+    Route::get('/create', [BannerController::class, 'create']); //新增頁 C
+    Route::post('/store', [BannerController::class, 'store']); //儲存 C
+    Route::get('/edit/{id}', [BannerController::class, 'edit']); //編輯頁 U
+    Route::post('/update/{id}', [BannerController::class, 'update']); //更新  U
+    Route::delete('/delete/{id}', [BannerController::class, 'destroy']); //刪除 D
+});
+
+ // 商品管理相關路由
+Route::prefix('/product')->middleware(['auth','power'])->group(function () {
+    Route::get('/', [ProductController::class, 'index']); //總表,列表頁 = Read
+    Route::get('/create', [ProductController::class, 'create']); //新增頁 C
+    Route::post('/store', [ProductController::class, 'store']); //儲存 C
+    Route::get('/edit/{id}', [ProductController::class, 'edit']); //編輯頁 U
+    Route::post('/update/{id}', [ProductController::class, 'update']); //更新  U
+    Route::delete('/delete/{id}', [ProductController::class, 'destroy']); //刪除 D
+    Route::delete('/delete_img/{img_id}', [ProductController::class, 'delete_img']); //刪除次要圖片 (接收次要商品圖片的id) D
+
+});
 
 //BANNER管理相關頁面  手工建立版本 (諄照resful API 的規定)
 // Route::get('/banner', [BannerController::class, 'index']); //總表,列表頁
@@ -55,38 +73,5 @@ Route::get('/login', [Controller::class, 'login']);
 // Route::patch('/banner/{id}', [BannerController::class, 'update']); //更新
 // Route::delete('/banner/{id}', [BannerController::class, 'destroy']); //刪除
 
-//以下一行底七行
-
+//以下一行底上面七行
 // Route::resource('banner', BannerController::class);
-
-
-// 部分參考resful API 個人習慣的寫法
-
-Route::prefix('/banner')->group(function () { // BANNER管理相關路由
-    Route::get('/', [BannerController::class, 'index']); //總表,列表頁 = Read
-
-    Route::get('/create', [BannerController::class, 'create']); //新增頁 C
-    Route::post('/store', [BannerController::class, 'store']); //儲存 C
-
-    Route::get('/edit/{id}', [BannerController::class, 'edit']); //編輯頁 U
-    Route::post('/update/{id}', [BannerController::class, 'update']); //更新  U
-
-    Route::delete('/delete/{id}', [BannerController::class, 'destroy']); //刪除 D
-});
-
-Route::prefix('/product')->group(function () { // 商品管理相關路由
-    Route::get('/', [ProductController::class, 'index']); //總表,列表頁 = Read
-
-    Route::get('/create', [ProductController::class, 'create']); //新增頁 C
-    Route::post('/store', [ProductController::class, 'store']); //儲存 C
-
-    Route::get('/edit/{id}', [ProductController::class, 'edit']); //編輯頁 U
-    Route::post('/update/{id}', [ProductController::class, 'update']); //更新  U
-
-    Route::delete('/delete/{id}', [ProductController::class, 'destroy']); //刪除 D
-
-    Route::delete('/delete_img/{img_id}', [ProductController::class, 'delete_img']); //刪除次要圖片 (接收次要商品圖片的id) D
-
-});
-
-
