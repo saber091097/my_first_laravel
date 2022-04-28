@@ -84,6 +84,9 @@ Route::prefix('/product')->group(function () { // 商品管理相關路由
     Route::post('/update/{id}', [ProductController::class, 'update']); //更新  U
 
     Route::delete('/delete/{id}', [ProductController::class, 'destroy']); //刪除 D
+
+    Route::delete('/delete_img/{img_id}', [ProductController::class, 'delete_img']); //刪除次要圖片 (接收次要商品圖片的id) D
+
 });
 
 

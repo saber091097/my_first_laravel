@@ -6,6 +6,7 @@
 @endsection
 
 @section('css')
+<meta name="_token" content="{{ csrf_token() }}">
 <link rel="stylesheet" href="{{asset('css/boostrap.css')}}">
     <link rel="stylesheet" href="{{asset('css/checkedout3.css')}}">
     <style>
@@ -40,8 +41,11 @@
                     <input type="file" name="product_img" id="product_img" accept='image/*'>
                     <div>目前的次要圖片</div>
                     <div class="d-flex flex-wrap align-items-start">
-                        @foreach ($product->imgs as $item) 
-                        <img src="{{$item->img_path}}" alt="" style="width:150px;" class="me-3">
+                        @foreach ($product->imgs as $item)
+                        <div class="d-flex flex-column me-3" style="width:150px;" id="sup_img{{$item->id}}">
+                            <img src="{{$item->img_path}}" alt="" class=" w-100" >
+                            <button class="btn btn-danger w-100" type="button" onclick="delete_img({{$item->id}})">刪除圖片</button>
+                        </div>
                         @endforeach
                     </div>
                     <label for="second_img">商品次要圖片上傳</label>
@@ -64,9 +68,36 @@
                         <button class="btn btn-primary" type="submit">編輯商品</button>
                     </div>
                 </form>
+                {{-- @foreach ($product->imgs as $item)
+                    <form action="/product/delete_img/{{$item->id}}" method="post" hidden id="deleteForm{{$item->id}}">
+                        @method('DELETE')
+                        @csrf
+                    </form>
+                @endforeach --}}
+
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+    <script>
+        function delete_img(id){
+                //準備表單以及內部的資料
+            let formData = new FormData();
+            formData.append('_method', 'DELETE');
+            formData.append('_token', '  {{ csrf_token() }}');
+                //將準備好的表單藉由fetch送到後台
+            fetch("/product/delete_img/"+id, {
+                method: "POST",
+                body: formData
+            }).then(function(response) {
+                //成功從資料庫刪除資料後, 將自己的HTML元素消除
+                let element = document.querySelector('#sup_img'+id)
+                element.parentNode.removeChild(element);
+            })
+        }
+    </script>
 @endsection
 

@@ -53,14 +53,15 @@ class ProductController extends Controller
         ]);
 
         //次要圖片 多圖片上傳
-        foreach ($request->second_img as $index => $element) {
-            $path = FilesController::imgUpload($element, 'product');
-            Product_img::create([
-                'img_path' => $path,
-                'product_id'=>  $product->id,
-            ]);
+        if ($request->hasfile('second_img')){
+            foreach ($request->second_img as $index => $element) {
+                $path = FilesController::imgUpload($element, 'product');
+                Product_img::create([
+                    'img_path' => $path,
+                    'product_id'=>  $product->id,
+                ]);
+            }
         }
-
         return redirect('/product');
     }
 
@@ -86,12 +87,24 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $product = Product::find($id);
+        //更換主要圖片
         if ($request->hasfile('product_img')){
-
             FilesController::deleteUpload($product->img_path);
             $path = FilesController::imgUpload($request->product_img, 'product');
             $product->img_path = $path;
         }
+
+        //次要圖片處理
+        if ($request->hasfile('second_img')){
+            foreach ($request->second_img as $index => $element) {
+                $path = FilesController::imgUpload($element, 'product');
+                Product_img::create([
+                    'img_path' => $path,
+                    'product_id'=>  $product->id,
+                ]);
+            }
+        }
+
 
         $product->product_name = $request->product_name;
         $product->product_detail = $request->product_detail;
@@ -112,10 +125,30 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
+        // 找出所有 要被刪掉的商品 的次要圖片
+        $imgs = Product_img::where('product_id',$id)->get();
+        // 次要圖片可能會有多筆, 利用foreach迴圈去刪除資料
+        foreach ($imgs as $key => $value) {
+            FilesController::deleteUpload($value->img_path);
+            $value->delete();
+        }
+
         FilesController::deleteUpload($product->img_path);
         $product->delete();
 
         return redirect('/product');
+
+    }
+
+    public function delete_img($img_id){
+        //藉由id去找到要刪除的次要圖片
+        $img = Product_img::find($img_id);
+        FilesController::deleteUpload($img->img_path);
+        //資料刪除前, 先將商品id取出 稍後頁面導引需要用到
+        $product_id = $img->product_id;
+        $img->delete();
+
+        return redirect('/product/edit/'.$product_id);
 
     }
 }
