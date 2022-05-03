@@ -37,9 +37,18 @@
                     <a class="nav-link" href="/comment">留言板</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/shopping1"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a class="nav-link" href="/shopping1">購物車</a>
                 </li>
                 @auth
+
+                {{-- 如果帳號是管理者  要顯示後台的連結 --}}
+                @if (Auth::user()->power == 1)
+                <li class="nav-item">
+                    <a href="/dashboard" class="nav-link">後台</a>
+                </li>
+                @endif
+
+
                 <li class="nav-item">
                     <a class="nav-link">{{ Auth::user()->name}}, 您好</a>
                 </li>
@@ -54,7 +63,7 @@
                 @guest
                 <li class="nav-item">
                     <a class="user-icon nav-link " href="/login">
-                        <i class=" fa-solid fa-circle-user tabindex='1'"></i>登入
+                        登入
                     </a>
                 </li>
                 @endguest

@@ -20,7 +20,15 @@ class AccountPower
         //假設這個平台只有兩個使用者 John 跟 Senna
         // John 登入後會到後台(因為他是超級管理者)
         // Senna 登入後只能到前台 (因為她只能管理留言)
-        if (Auth::user()->name == 'John'){
+
+        // if (Auth::user()->name == 'John' ){
+        //     return $next($request);
+        // }else{
+        //     return redirect('/');
+        // }
+
+        // 改用身分組判斷 1: 管理者, 2:一般客戶
+        if (Auth::user()->power == 1 ){
             return $next($request);
         }else{
             return redirect('/');

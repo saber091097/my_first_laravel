@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ShoppingCartController;
-
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ProductController;
 /*
@@ -61,7 +61,17 @@ Route::prefix('/product')->middleware(['auth','power'])->group(function () {
     Route::post('/update/{id}', [ProductController::class, 'update']); //更新  U
     Route::delete('/delete/{id}', [ProductController::class, 'destroy']); //刪除 D
     Route::delete('/delete_img/{img_id}', [ProductController::class, 'delete_img']); //刪除次要圖片 (接收次要商品圖片的id) D
+});
 
+
+ // 會員管理相關路由
+ Route::prefix('/account')->middleware(['auth','power'])->group(function () {
+    Route::get('/', [AccountController::class, 'index']); //總表,列表頁 = Read
+    Route::get('/create', [AccountController::class, 'create']); //新增頁 C
+    Route::post('/store', [AccountController::class, 'store']); //儲存 C
+    Route::get('/edit/{id}', [AccountController::class, 'edit']); //編輯頁 U
+    Route::post('/update/{id}', [AccountController::class, 'update']); //更新  U
+    Route::delete('/delete/{id}', [AccountController::class, 'destroy']); //刪除 D
 });
 
 //BANNER管理相關頁面  手工建立版本 (諄照resful API 的規定)

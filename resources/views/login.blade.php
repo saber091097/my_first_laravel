@@ -66,6 +66,7 @@
                                 <input id="remember_me" type="checkbox" name="remember" style="width: 15px;height:15px;">
                                 <label for="remember_me">記住我?</label>
                                 <a href="" class="ms-5">Forgot your password?</a>
+                                <a href="/register" class="ms-5">新用戶?請點此註冊</a>
                             </div>
                             <button type="submit" class="btn btn-primary">SIGN IN</button>
                         </form>
