@@ -40,6 +40,8 @@ class Controller extends BaseController
         $product = Product::find($id);
         return view('product-inside',compact('product'));
     }
+
+
     public function add_cart(Request $request){
         $product = Product::find($request->product_id);
         //檢查輸入的購買數量合理不合理
@@ -56,7 +58,7 @@ class Controller extends BaseController
             ];
             return $result;
         }
-        //檢查是否有登入
+        //檢查是否有登入 !Auth::check() 因為有加上! 反轉判斷結果, 所以現在 沒有登入 = true
         if (!Auth::check()){
             $result = [
                 'result' => 'error',

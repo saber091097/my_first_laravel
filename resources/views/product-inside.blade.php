@@ -121,24 +121,25 @@
             const add_product = document.querySelector('#add_product')
 
             minus.onclick = function(){
+                // 用parseInt 將字串轉換為數字
                 if (parseInt(qty.value) >= 2){
                     qty.value = parseInt(qty.value) - 1
                 }
-
             }
-
             plus.onclick = function(){
-                if (parseInt(qty.value) < {!! $product->product_qty !!}){
+                if (parseInt(qty.value) < {!! $product->product_qty !!} ){
                     qty.value = parseInt(qty.value) + 1
                 }
             }
 
             add_product.onclick = function(){
+                // 在JS建立一個虛擬的form表單
                 var formData = new FormData();
+
                 formData.append('add_qty',   parseInt(qty.value));
                 formData.append('product_id',  {!! $product->id !!});
                 formData.append('_token',  '{!! csrf_token() !!}');
-
+                // 利用fetch將form表單送過去
                 fetch('/add_to_cart', {
                     method: 'POST',
                     body: formData
@@ -149,11 +150,11 @@
                     return 'error';
                 })
                 .then(response => {
-                    console.log(response.result);
+
                     if (response != 'error'){
-                        if (response.result == 'success')
+                        if (response.result == 'success'){
                             alert('新增成功')
-                        else{
+                        }else{
                             alert('新增失敗:' + response.message)
                         }
                     }
