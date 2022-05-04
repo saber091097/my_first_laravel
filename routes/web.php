@@ -21,6 +21,13 @@ use App\Http\Controllers\ProductController;
 // 首頁
 Route::get('/', [Controller::class, 'index']);
 
+// 商品詳情
+Route::get('/product_detail/{id}', [Controller::class, 'product']);
+
+Route::post('/add_to_cart', [Controller::class, 'add_cart']);
+
+
+
 // 留言相關路由
 Route::get('/comment', [Controller::class, 'comment']);
 Route::post('/comment/store', [Controller::class, 'save_comment']);

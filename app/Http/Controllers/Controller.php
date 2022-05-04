@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Comment;
 use App\Models\Product;
+use App\Models\ShoppingCart;
+
+use Illuminate\Support\Facades\Auth;
 
 
 class Controller extends BaseController
@@ -29,6 +32,48 @@ class Controller extends BaseController
 
         return view('index',compact('newses','products_for_box1','products_for_box2','main_product'));
 
+
+    }
+
+
+    public function product($id){
+        $product = Product::find($id);
+        return view('product-inside',compact('product'));
+    }
+    public function add_cart(Request $request){
+        $product = Product::find($request->product_id);
+        //檢查輸入的購買數量合理不合理
+        if ($request->add_qty > $product->product_qty){
+            $result = [
+                'result' => 'error',
+                'message'  => '欲購買數量超過庫存，請聯絡客服',
+            ];
+            return $result;
+        }elseif ($request->add_qty < 1) {
+            $result = [
+                'result' => 'error',
+                'message'  => '購買數量異常，請重新確認',
+            ];
+            return $result;
+        }
+        //檢查是否有登入
+        if (!Auth::check()){
+            $result = [
+                'result' => 'error',
+                'message'  => '尚未登入, 請先登入',
+            ];
+            return $result;
+        }
+
+        ShoppingCart::create([
+            'product_id'=> $request->product_id,
+            'user_id'=> Auth::user()->id,
+            'qty'=> $request->add_qty,
+        ]);
+        $result = [
+            'result' => 'success',
+        ];
+        return $result;
 
     }
 
