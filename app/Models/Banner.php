@@ -20,7 +20,6 @@ class Banner extends Model
      * @var string
      */
     protected $table = 'banners';
-
     protected $keyType = 'integer';
 
     /**

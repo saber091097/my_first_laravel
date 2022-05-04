@@ -1,0 +1,967 @@
+body {
+  margin: 0;
+}
+body nav {
+  height: 92px;
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 1010px) {
+  body nav {
+    padding: 0 24px;
+  }
+}
+body nav .row {
+  position: relative;
+}
+body nav .row .logoimg {
+  padding: 0 32px;
+}
+@media (max-width: 1010px) {
+  body nav .row .logoimg {
+    width: 25%;
+  }
+}
+body nav .row .logoimg :hover {
+  cursor: pointer;
+}
+body nav .row .logoimg img {
+  padding: 0 32px;
+}
+body nav .row .rightnav {
+  display: flex;
+  justify-content: end;
+}
+@media (max-width: 768px) {
+  body nav .row .rightnav {
+    display: none;
+  }
+}
+body nav .row .rightnav div {
+  height: auto;
+}
+body nav .row .rightnav :hover {
+  cursor: pointer;
+}
+@media (max-width: 1010px) {
+  body nav .row .rightnav .mdr {
+    width: auto;
+    padding: 8px 16px;
+    margin-left: 16px;
+  }
+}
+body nav .row .rightnav .navhover:hover {
+  background-color: gray;
+  border-radius: 10px;
+}
+@media (max-width: 1010px) {
+  body nav .row .rightnav .navhover {
+    width: auto;
+    padding: 8px 16px;
+    margin: 0;
+  }
+}
+body nav .row .rightnav div {
+  padding: 8px 16px;
+  margin-left: 16px;
+  font-size: 0.875rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+body nav .row .dropdown {
+  position: relative;
+}
+body nav .row .dropdown .loginicon {
+  padding: 8px;
+  border: 0;
+}
+body nav .row .dropdown .loginicon i {
+  font-size: 28px;
+}
+body nav .row .dropdown ul {
+  padding: 8px;
+  width: 192px;
+  height: 52px;
+}
+body nav .row .dropdown ul li .dropdown-item {
+  font-size: 0.875rem;
+  font-weight: 600;
+  width: 70px;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+body nav .row .dropdown ul li .dropdown-item:active {
+  background-color: gainsboro;
+  color: black;
+}
+
+.container {
+  width: 100%;
+}
+
+main #banner .container-fluid {
+  padding: 0;
+}
+main #banner .container-fluid .swiper {
+  width: 100%;
+  height: 100%;
+}
+main #banner .container-fluid .swiper .swiper-slide {
+  text-align: center;
+  background: gray;
+  height: calc(100vh - 92px);
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+main #intro .container-fluid {
+  padding: 0 166px;
+  height: auto;
+  text-align: center;
+}
+main #intro .container-fluid .row {
+  display: flex;
+  justify-content: center;
+}
+main #intro .container-fluid .row h1 {
+  font-size: 1.875rem;
+  margin-bottom: 16px;
+  padding-top: 96px;
+}
+main #intro .container-fluid .row .rowinttext {
+  width: 100vh;
+  margin: 0 123px;
+}
+main #intro .container-fluid .row div {
+  width: 100%;
+}
+main #intro .container-fluid .row div .line {
+  width: 4em;
+  height: 4px;
+  background-color: #007aff;
+  margin-top: 24px;
+}
+main #intro .container-fluid .row .introbox1 {
+  width: 33%;
+  height: auto;
+  padding: 16px;
+}
+main #intro .container-fluid .row .introbox1 .introbox1-img img {
+  width: 80px;
+  height: 80px;
+  background-color: rgb(59, 130, 246);
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+main #intro .container-fluid .row .introbox1 .introbox1-img h5 {
+  width: 100%;
+  margin-bottom: 12px;
+}
+main #intro .container-fluid .row .introbox1 .introbox1-img .text {
+  margin: 0;
+}
+main #intro .container-fluid .row .introbox2 {
+  width: 33%;
+  height: auto;
+  padding: 16px;
+}
+main #intro .container-fluid .row .introbox2 .introbox2-img img {
+  width: 80px;
+  height: 80px;
+  background-color: rgb(59, 130, 246);
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+main #intro .container-fluid .row .introbox2 .introbox2-img h5 {
+  width: 100%;
+  margin-bottom: 12px;
+}
+main #intro .container-fluid .row .introbox2 .introbox2-img .text {
+  margin: 0;
+}
+main #intro .container-fluid .row .introbox3 {
+  width: 33%;
+  height: auto;
+  padding: 16px;
+}
+main #intro .container-fluid .row .introbox3 .introbox3-img img {
+  width: 80px;
+  height: 80px;
+  background-color: rgb(59, 130, 246);
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+main #intro .container-fluid .row .introbox3 .introbox3-img h5 {
+  width: 100%;
+  margin-bottom: 12px;
+}
+main #intro .container-fluid .row .introbox3 .introbox3-img .text {
+  margin: 0;
+}
+main #intro .container-fluid .row .mt {
+  margin-top: 12px;
+}
+main #intro .container-fluid .row .ms {
+  margin-left: 8px;
+}
+main #intro .container-fluid .row .pricing-span {
+  width: auto;
+}
+main #intro .container-fluid .row button {
+  width: auto;
+  height: 44px;
+  background-color: rgb(99, 102, 241);
+  border-radius: 5px;
+  padding: 8px 32px;
+  margin: 64px 0 96px 0;
+}
+main #intro .container-fluid .intro1box {
+  margin-bottom: 80px;
+}
+main #gallery .container-fluid {
+  height: auto;
+  padding: 0 9%;
+  margin-top: 96px;
+}
+main #gallery .container-fluid .row, main #gallery .container-fluid .mb {
+  width: 100%;
+  height: 52px;
+  margin: 0 0 96px 0;
+}
+main #gallery .container-fluid .row h1, main #gallery .container-fluid .mb h1 {
+  padding-left: 20px;
+  font-size: 1.875rem;
+}
+@media (max-width: 1010px) {
+  main #gallery .container-fluid h1, main #gallery .container-fluid p {
+    padding: 0 20px 0 20px;
+    margin: 0;
+  }
+}
+main #gallery .container-fluid .row {
+  height: auto;
+}
+main #gallery .container-fluid .row .leftgallery {
+  height: auto;
+}
+main #gallery .container-fluid .row .leftgallery .leftgallery-top {
+  font-size: 40px;
+}
+main #gallery .container-fluid .row .leftgallery .leftgallery-top img {
+  background-size: cover;
+}
+main #gallery .container-fluid .row .leftgallery .leftgallery-top .leftgallery-top-left {
+  height: auto;
+  border: 8px solid white;
+}
+main #gallery .container-fluid .row .leftgallery .leftgallery-top .leftgallery-top-right {
+  height: auto;
+  border: 8px solid;
+}
+main #gallery .container-fluid .row .leftgallery .leftgallery-bottom {
+  font-size: 60px;
+  background-size: cover;
+  border: 8px solid white;
+}
+main #gallery .container-fluid .row .rightgallery .rightgallery-top {
+  font-size: 60px;
+  border: 8px solid white;
+  background-size: cover;
+}
+main #gallery .container-fluid .row .rightgallery .rightgallery-bottom {
+  font-size: 40px;
+  background-size: cover;
+}
+main #gallery .container-fluid .row .rightgallery .rightgallery-bottom .rightgallery-bottom-left {
+  border: 8px solid white;
+  height: auto;
+}
+main #gallery .container-fluid .row .rightgallery .rightgallery-bottom .rightgallery-bottom-right {
+  border: 8px solid white;
+  height: auto;
+}
+main #pricing {
+  padding: 96px 20px;
+}
+main #pricing .container-xxl .row {
+  margin-bottom: 80px;
+}
+main #pricing .container-xxl .row .pricing-h1 {
+  margin-bottom: 8px;
+}
+main #pricing .container-xxl .row .pric-p {
+  width: 73%;
+}
+main #pricing .container-xxl .row table {
+  width: 75%;
+  border-collapse: separate;
+  border-spacing: 0;
+  padding: 0;
+}
+main #pricing .container-xxl .row table thead {
+  background-color: rgb(229, 231, 235);
+}
+main #pricing .container-xxl .row table thead .tabbr {
+  border-collapse: separate;
+}
+main #pricing .container-xxl .row table thead .tabbr .thpad {
+  padding: 12px 16px;
+  font-size: 0.875rem;
+}
+main #pricing .container-xxl .row table thead .tabbr :first-child {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 5%;
+  border-left: white solid;
+}
+main #pricing .container-xxl .row table thead .tabbr :last-child {
+  border-top-right-radius: 5%;
+  border-bottom-right-radius: 5%;
+  border-right: white solid;
+}
+main #pricing .container-xxl .row table thead .tabbr .inputbox {
+  width: 5%;
+}
+main #pricing .container-xxl .row table thead .tabbr .fw2 {
+  font-weight: 300;
+}
+main #pricing .container-xxl .row table tbody tr {
+  border-bottom: 2px solid rgb(229, 231, 235);
+}
+main #pricing .container-xxl .row table tbody tr .tdb {
+  padding: 12px 16px;
+}
+main #pricing .container-xxl .row table tbody tr .inputbox {
+  width: 5%;
+  padding-right: 10px;
+}
+main #pricing .container-xxl .row table tbody tr .fw2 {
+  font-weight: 200;
+}
+main #pricing .container-xxl .row .pricing-bottom {
+  padding-top: 16px;
+}
+main #pricing .container-xxl .row .pricing-bottom i {
+  margin-left: 8px;
+}
+main #pricing .container-xxl .row button {
+  width: auto;
+  height: 44px;
+  background-color: #007aff;
+  border-radius: 5px;
+  padding: 8px 24px;
+}
+main #card01 .container-fluid {
+  padding: 96px 0;
+}
+@media (max-width: 1010px) {
+  main #card01 .container-fluid .md {
+    margin-bottom: 80px !important;
+  }
+}
+main #card01 .container-fluid .row {
+  margin: 0;
+  padding: 0 10%;
+}
+main #card01 .container-fluid .row .card01-top-left {
+  margin-bottom: 80px;
+}
+@media (max-width: 1010px) {
+  main #card01 .container-fluid .row .card01-top-left {
+    margin-bottom: 24px !important;
+  }
+}
+main #card01 .container-fluid .row .card01-top-left .fs {
+  font-size: 1.875rem;
+}
+main #card01 .container-fluid .row .card01-top-left .line {
+  width: 4em;
+  height: 4px;
+  background-color: #007aff;
+}
+main #card01 .container-fluid .row .card01-top-right {
+  text-justify: inter-cluster;
+  text-align: justify;
+}
+main #card01 .container-fluid .row .cards {
+  padding: 0;
+}
+@media (min-width: 1011px) {
+  main #card01 .container-fluid .row .cards {
+    flex-wrap: nowrap !important;
+  }
+}
+@media (max-width: 1010px) {
+  main #card01 .container-fluid .row .cards .rwd {
+    margin: 16px 12px 16px 16px !important;
+  }
+  main #card01 .container-fluid .row .cards .card {
+    width: 45% !important;
+  }
+}
+main #card01 .container-fluid .row .cards .card {
+  width: 25%;
+  height: 250px;
+  padding: 24px;
+  background-color: rgb(229, 231, 235);
+  margin: 16px;
+  border: unset;
+}
+main #card01 .container-fluid .row .cards .card .card-pic img {
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+main #card01 .container-fluid .row .cards .card .fs {
+  padding-top: 24px;
+  font-size: 0.875rem;
+  margin: 0;
+}
+main #card01 .container-fluid .row .cards .card .fs2 {
+  font-size: 1.274rem;
+}
+main #card01 .container-fluid .row .cards .card .p16 {
+  margin-bottom: 16px;
+}
+main #card01 .container-fluid .row .cards .ms {
+  margin-left: 12px;
+}
+main #card01 .container-fluid .row .cards .mr {
+  margin-right: 12px;
+}
+main #special .container-xxl {
+  width: 60%;
+  padding: 96px 20px;
+}
+@media (max-width: 1010px) {
+  main #special .container-xxl {
+    width: 70% !important;
+  }
+}
+@media (max-width: 768px) {
+  main #special .container-xxl {
+    width: 100% !important;
+  }
+}
+main #special .container-xxl .row {
+  margin: 0;
+  padding-bottom: 40px;
+  border-bottom: 2px solid rgb(229, 231, 235);
+}
+@media (max-width: 1010px) {
+  main #special .container-xxl .row .row-left {
+    margin: 0 !important;
+  }
+}
+main #special .container-xxl .row .special-img {
+  padding: 0;
+  margin-right: 40px;
+}
+main #special .container-xxl .row .special-img img {
+  border-radius: 50%;
+  background-size: cover;
+  width: 128px;
+  height: 128px;
+}
+main #special .container-xxl .row .mb {
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+}
+main #special .container-xxl .row .special-span {
+  margin-top: 12px;
+}
+main #special .container-xxl .row .row-right {
+  width: 65%;
+}
+main #special .container-xxl .row .row-right-span {
+  font-size: 1rem;
+}
+main #special .container-xxl .row .row-left {
+  padding: 0;
+  width: 65%;
+  margin-right: 40px;
+}
+main #special .container-xxl .row .row2-right .special-img {
+  padding: 0;
+  margin-right: 0;
+}
+main #special .container-xxl .row button {
+  width: auto;
+  height: 44px;
+  background-color: rgb(99, 102, 241);
+  border-radius: 5px;
+  margin-top: 64px;
+  padding: 8px 32px;
+}
+main #special .container-xxl .pt {
+  padding-top: 40px;
+}
+main #special .container-xxl .button {
+  border: unset;
+}
+main #merch .container-xxl {
+  padding: 96px 20px;
+  width: 80%;
+}
+@media (max-width: 576px) {
+  main #merch .container-xxl {
+    padding: 0 40px !important;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+main #merch .container-xxl .row {
+  margin: 0;
+  width: 50%;
+}
+@media (max-width: 1010px) {
+  main #merch .container-xxl .row {
+    padding: 0 40px !important;
+    width: 100%;
+  }
+}
+main #merch .container-xxl .row img {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background-size: cover;
+  border-radius: 1%;
+  object-fit: cover;
+  object-position: center;
+}
+@media (max-width: 1010px) {
+  main #merch .container-xxl .row img {
+    height: 256px !important;
+  }
+}
+main #merch .container-xxl .row .color .rounded1 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid rgb(229, 231, 235);
+  background-color: white;
+}
+main #merch .container-xxl .row .color .rounded2 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid rgb(229, 231, 235);
+  background-color: black;
+}
+main #merch .container-xxl .row .color .rounded3 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid rgb(229, 231, 235);
+  background-color: rgb(99, 102, 241);
+}
+main #merch .container-xxl .row .color .form-select {
+  width: 77px;
+  height: 40px;
+  padding: 8px 40px 8px 12px;
+}
+main #merch .container-xxl .row .pay button {
+  width: auto;
+  height: 40px;
+  background-color: rgb(99, 102, 241);
+  border-radius: 5px;
+  padding: 8px 24px;
+}
+main #merch .container-xxl .row .pay .love {
+  width: 40px;
+  height: 40px;
+  background-color: rgb(229, 231, 235);
+  border-radius: 50%;
+}
+main #merch .container-xxl .row .pay .love :hover {
+  cursor: pointer;
+}
+main #merch .container-xxl .row .pay .love i {
+  font-size: 20px;
+}
+main #merch .container-xxl .row h3 {
+  height: 20px;
+  font-size: 0.875rem;
+  padding: 0;
+  margin: 0;
+}
+main #merch .container-xxl .row h2 {
+  padding: 0;
+  margin: 0 0 4px 0;
+}
+main #merch .container-xxl .row .star {
+  height: 36px;
+  margin: 0 0 16px 0;
+  padding: 0;
+}
+main #merch .container-xxl .row .star .mr {
+  margin-left: 12px;
+}
+main #merch .container-xxl .row .star .mr i {
+  font-size: auto;
+}
+main #merch .container-xxl .row .star .mr .w20 {
+  width: 20px;
+  height: 20px;
+}
+main #merch .container-xxl .row .star .line {
+  height: 36px;
+  border-right: 2px solid rgb(229, 231, 235);
+}
+main #merch .container-xxl .row .star .line .mr {
+  margin-right: 12px;
+}
+main #merch .container-xxl .row .star .line .mr1 {
+  margin: 0 12px 0 0;
+}
+main #merch .container-xxl .row .mainp {
+  margin: 0;
+  padding: 0;
+  width: 93%;
+  line-height: 1.625rem;
+}
+main #merch .container-xxl .row .color {
+  border-bottom: 2px solid rgb(229, 231, 235);
+  padding: 0 0 20px 0;
+  margin: 24px 0 20px 0;
+}
+main #merch .container-xxl .row .color .colorp {
+  margin-right: 12px;
+}
+main #merch .container-xxl .row .color .ml {
+  margin-left: 4px;
+}
+main #merch .container-xxl .row .color .mrg {
+  margin: 0 12px 0 24px;
+}
+main #merch .container-xxl .row .pay .money {
+  font-size: 1.5rem;
+  margin-right: auto;
+}
+main #merch .container-xxl .row .pay .paybutton {
+  margin-right: 16px;
+}
+main #merch .container-xxl .right {
+  padding: 24px 0 24px 40px;
+}
+@media (max-width: 1010px) {
+  main #merch .container-xxl .right {
+    margin-top: 24px !important;
+  }
+}
+main #card02 .container-fluid {
+  padding: 0 10%;
+  margin: 96px 0;
+}
+main #card02 .container-fluid .row {
+  margin: 0;
+}
+main #card02 .container-fluid .row .card {
+  padding: 16px;
+  border: unset;
+}
+@media (max-width: 1010px) {
+  main #card02 .container-fluid .row .card {
+    width: 45% !important;
+  }
+}
+@media (max-width: 768px) {
+  main #card02 .container-fluid .row .card {
+    width: 100% !important;
+  }
+}
+main #card02 .container-fluid .row .card .card-pic {
+  width: 100%;
+  height: 192px;
+  background-color: rgb(229, 231, 235);
+  border-radius: 2%;
+  font-weight: 300;
+}
+main #card02 .container-fluid .row .card .mt {
+  margin: 16px 0 4px 0;
+  font-size: 0.875rem;
+}
+main #card02 .container-fluid .row .card .fs {
+  font-size: 1.125rem;
+}
+main #card02 .container-fluid .row .card .mts {
+  margin-top: 4px;
+}
+main #map .container-fluid {
+  padding: 96px 0;
+}
+main #map .container-fluid .row {
+  margin: 0;
+  position: relative;
+}
+main #map .container-fluid .row iframe {
+  height: 696px;
+  padding: 0;
+}
+main #map .container-fluid .row .freeback {
+  top: 13%;
+  left: 63%;
+  width: 27%;
+  z-index: 1;
+  border-radius: 10px;
+  position: absolute;
+  width: 27%;
+  height: auto;
+  padding: 32px;
+}
+@media (max-width: 1010px) {
+  main #map .container-fluid .row .freeback {
+    width: 40% !important;
+    top: 50%;
+    left: 80%;
+    transform: translate(-80%, -50%);
+  }
+}
+@media (max-width: 768px) {
+  main #map .container-fluid .row .freeback {
+    width: 80% !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+main #map .container-fluid .row .freeback .fe {
+  font-size: 1.125rem;
+  margin-bottom: 4px;
+}
+main #map .container-fluid .row .freeback .po {
+  margin-bottom: 20px;
+  line-height: 1.625;
+}
+main #map .container-fluid .row .freeback .em {
+  font-size: 0.875rem;
+  line-height: 1.75rem;
+}
+main #map .container-fluid .row .freeback .me {
+  margin-bottom: 16px;
+}
+main #map .container-fluid .row .freeback .fontbox {
+  font-size: 20px;
+  border-radius: 4px;
+  border: 1px solid rgb(229, 231, 235);
+  margin-bottom: 16px;
+  outline-color: rgb(99, 102, 241);
+}
+main #map .container-fluid .row .freeback #ro6 {
+  resize: none;
+  margin-bottom: 16px;
+  outline-color: rgb(99, 102, 241);
+}
+main #map .container-fluid .row .freeback button {
+  background-color: rgb(99, 102, 241);
+  border-radius: 4px;
+  border: unset;
+  padding: 8px 24px;
+}
+main #map .container-fluid .row .freeback .mb {
+  margin-top: 12px;
+  font-size: 0.75rem;
+}
+
+footer #sitemap .container-fluid {
+  padding: 0 10% 96px 10%;
+}
+@media (max-width: 1010px) {
+  footer #sitemap .container-fluid {
+    padding: 96px 0;
+  }
+}
+footer #sitemap .container-fluid .row {
+  margin: 0;
+}
+@media (max-width: 1010px) {
+  footer #sitemap .container-fluid .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: unset;
+  }
+}
+@media (max-width: 768px) {
+  footer #sitemap .container-fluid .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    flex-direction: column !important;
+    margin: 40px 0 -40px 0;
+  }
+}
+footer #sitemap .container-fluid .row .left {
+  width: auto;
+}
+@media (max-width: 1010px) {
+  footer #sitemap .container-fluid .row .left {
+    width: 40% !important;
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (max-width: 1010px) {
+  footer #sitemap .container-fluid .row .left .leftimg {
+    width: 100% !important;
+    display: flex;
+    padding-left: 40%;
+  }
+}
+@media (max-width: 768px) {
+  footer #sitemap .container-fluid .row .left .leftimg {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+  }
+}
+footer #sitemap .container-fluid .row .left .leftimg img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+footer #sitemap .container-fluid .row .left .leftimg .company {
+  font-size: 1.25rem;
+  margin-left: 12px;
+}
+@media (max-width: 1010px) {
+  footer #sitemap .container-fluid .row .left .leftimg .company {
+    width: auto !important;
+    display: flex;
+  }
+}
+@media (max-width: 1010px) {
+  footer #sitemap .container-fluid .row .left .word {
+    width: 100% !important;
+    display: flex;
+    justify-content: start;
+    padding-left: 40%;
+  }
+}
+footer #sitemap .container-fluid .row .left .word .comw {
+  margin-top: 8px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgb(107, 114, 128);
+}
+@media (max-width: 768px) {
+  footer #sitemap .container-fluid .row .left .word .comw {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (max-width: 1010px) {
+  footer #sitemap .container-fluid .row .left .word .comw {
+    width: 100% !important;
+    display: flex;
+  }
+}
+@media (max-width: 1010px) {
+  footer #sitemap .container-fluid .row .right {
+    width: 60% !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    flex-direction: row !important;
+    padding-left: 40px;
+  }
+}
+@media (max-width: 768px) {
+  footer #sitemap .container-fluid .row .right {
+    width: 100% !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    flex-direction: column !important;
+    margin: 40px 0 -40px 0;
+  }
+}
+@media (max-width: 1010px) {
+  footer #sitemap .container-fluid .row .right .md {
+    width: 45% !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    flex-direction: column !important;
+    margin-bottom: 40px;
+  }
+}
+footer #sitemap .container-fluid .row .right ul {
+  padding: 0;
+}
+@media (max-width: 768px) {
+  footer #sitemap .container-fluid .row .right ul {
+    width: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap;
+  }
+}
+footer #sitemap .container-fluid .row .right ul h2 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-bottom: 12px;
+  color: rgb(75, 85, 99);
+}
+@media (max-width: 1010px) {
+  footer #sitemap .container-fluid .row .right ul h2 {
+    display: flex !important;
+    justify-content: center !important;
+  }
+}
+@media (max-width: 768px) {
+  footer #sitemap .container-fluid .row .right ul h2 {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+}
+footer #sitemap .container-fluid .row .right ul .lictr {
+  list-style: none;
+}
+@media (max-width: 1010px) {
+  footer #sitemap .container-fluid .row .right ul .lictr {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  footer #sitemap .container-fluid .row .right ul .lictr {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+  }
+}
+footer #copyright .container-fluid {
+  padding: 0 10%;
+  margin: 0;
+  background-color: rgb(229, 231, 235);
+}
+footer #copyright .container-fluid .row {
+  margin: 0;
+  padding: 16px 0;
+  font-size: 0.875rem;
+}
+footer #copyright .container-fluid .row .leftword {
+  height: 20px;
+}
+footer #copyright .container-fluid .row .rightlink {
+  height: 20px;
+}
+footer #copyright .container-fluid .row .rightlink .fa-brands {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}
+footer #copyright .container-fluid .row .rightlink .ml {
+  margin-left: 12px;
+}/*# sourceMappingURL=bootstrap.css.map */

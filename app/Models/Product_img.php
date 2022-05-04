@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property string $img_path
- * @property integer $product_id
  * @property mixed $created_at
  * @property mixed $updated_at
+ * @property string $img_path
+ * @property integer $product_id
  */
 class Product_img extends Model
 {
@@ -18,22 +18,20 @@ class Product_img extends Model
      *
      * @var string
      */
+
     protected $keyType = 'integer';
 
     /**
      * @var array
      */
-    protected $fillable = ['img_path', 'product_id', 'created_at', 'updated_at'];
-
-    // 每一張商品圖片
+    protected $fillable = ['created_at', 'updated_at', 'img_path', 'product_id'];
+    //每一張商品圖片
     public function product(){
 
+        // return $this->hasOne(Shop::class,'id','product_id');//格式對照的model::class 對方的欄位 自己的欄位
+        //必定屬於抹一個商品
+        return $this->belongto(Shop::class,'product_id','id');//格式對照的model::class 自己的欄位 對方的欄位
 
-        // hasOne / hasMany 格式 (對照的model::class, '對方的欄位', '自己的欄位')
-        // $this->hasOne(Product::class,'id','product_id');
-
-        // 必定屬於某一個商品
-        // belongsTo / belongsToMany 格式 (對照的model::class, '自己的欄位', '對方的欄位')
-        $this->belongsTo(Product::class,'product_id','id');
+        //兩個做的事是一樣的
     }
 }
